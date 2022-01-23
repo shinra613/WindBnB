@@ -1,87 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Mulish&display=swap');
+
+
 .App {
   text-align: center;
   width: 60%;
   margin: auto;
+  /* background-color: blanchedalmond; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header{
+  margin-top: 50px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.header>div{
+ width: 300px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.headerOne{
+  text-align: left;
 }
 
-.blog-container{
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content:space-between;
+.headerTwo{
+  text-align: right;
+}
+
+.headerTwo>span{
+position: relative;
+  margin-right : 35px;
+ bottom: 7px;
+ font-family: 'Mulish', sans-serif;
+
+}
+
+.headSpanOne{
+color:#333333;
+
+}
+
+.headSpanTwo{
+  color:#BDBDBD;
+}
+
+.data-container{
+  margin-top:85px; 
+}
+
+.card-header{
   
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-
-.card-container{
-  margin-top: 40px;
-  width: 40%;
-  height: 200px;
-  color: white;
-  border: 5px solid black;
-  border-radius: 1rem;
+.CardSpanOne{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  color: #333333;
 }
-
-.card-background{
-  height: 100%;
-
-  background-image: url(../public/img/coding.jpg);
-  border-radius: 1rem;
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
+.CardSpanTwo{
+  font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 17px;
+color: #4F4F4F;
 }
 
 .card-content{
-  max-width: 100%;
-  max-height: 100%;
- position: relative;
- z-index: 2;
- bottom: 100%;
-  margin-left:20px;
-  text-align: left;
-  
+  display: grid;
+  grid-template-columns: 525px 525px auto;
+  grid-column-gap:50px;
+  grid-row-gap:50px;
+  flex-wrap: wrap;
+  margin-top: 35px;
+  margin-left: 0;
 }
 
-.card-content>p{
-  
+
+
+.card{
+  max-width: 395px;
 }
+
+.card-image{
+  width: 100%;
+  height: 269px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.CardGenSpanOne{
+
+  font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+color: #828282;
+
+}
+
+.CardGenSpanTwo{
+  display: flex;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 0px;
+  color: #4F4F4F;
+}
+.CardGenSpanTwo>span{
+color:#EB5757;
+}
+
+.card-title{
+  font-family: Montserrat;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 20px;
+text-align: left;
+color: #333333;
+}
+
+
+
 
