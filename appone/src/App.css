@@ -4,7 +4,7 @@
 
 .App {
   text-align: center;
-  width: 60%;
+  width: 70%;
   margin: auto;
   /* background-color: blanchedalmond; */
 }
@@ -26,6 +26,7 @@
 
 .headerTwo{
   text-align: right;
+  max-width: 100%;
 }
 
 .headerTwo>span{
@@ -38,11 +39,14 @@ position: relative;
 
 .headSpanOne{
 color:#333333;
+max-width: 100%;
 
 }
 
 .headSpanTwo{
   color:#BDBDBD;
+  max-width: 100%;
+
 }
 
 .data-container{
@@ -50,7 +54,7 @@ color:#333333;
 }
 
 .card-header{
-  
+  max-width: 100%;
   display:flex;
   flex-direction: row;
   justify-content: space-between;
@@ -74,10 +78,8 @@ color: #4F4F4F;
 
 .card-content{
   display: grid;
-  grid-template-columns: 525px 525px auto;
-  grid-column-gap:50px;
-  grid-row-gap:50px;
-  flex-wrap: wrap;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  grid-gap:33px;
   margin-top: 35px;
   margin-left: 0;
 }
@@ -85,11 +87,18 @@ color: #4F4F4F;
 
 
 .card{
-  max-width: 395px;
+  max-width: auto;
+  
+  width: 395px;
+  max-width:100%;
+  margin: 50px 0px;
 }
+
+
 
 .card-image{
   width: 100%;
+  max-width: 100%;
   height: 269px;
   object-fit: cover;
   border-radius: 24px;
@@ -126,8 +135,36 @@ font-size: 16px;
 line-height: 20px;
 text-align: left;
 color: #333333;
+max-width: 100%;
 }
 
+@media only screen and (max-width: 900px) {
+  .card-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
+  .header{
+    flex-direction: column;
+  }
+
+  .header>div{
+    width: 100%;
+   }
+
+  .headerTwo{
+    text-align: right;
+    max-width: 100%;
+  }
+  
+  .headerTwo>span{
+  position: relative;
+    margin-right : 15px;
+   bottom: 7px;
+   font-family: 'Mulish', sans-serif;
+  
+  }
+}
 
 
