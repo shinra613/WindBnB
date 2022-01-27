@@ -4,8 +4,8 @@
 
 .App {
   text-align: center;
-  width: 70%;
   margin: auto;
+  
   /* background-color: blanchedalmond; */
 }
 
@@ -178,4 +178,102 @@ max-width: 100%;
   }
 }
 
+.ExtendedMenu{
+  width: 70%;
+  z-index: 1;
+  height: 100vh;
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  
+}
+.MenuContainer{
+  background-color:white;
+  display: flex;
+  height: 500px;
+  width: 100%;
+  
+  
+}
+
+.menubackground{
+  margin: auto;
+  display: flex;
+  background-color:white;
+  margin-top: 93px;
+  width: 80%;
+  
+}
+
+.menubackground>div{
+  
+  width: 33.3%;
+  flex-direction: row;
+  
+}
+
+.searchButton{
+  margin:auto;
+  display: flex;
+  justify-content: center;
+  width: 127px;
+  height: 49px;
+  color: white;
+  background: #EB5757;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+}
+
+.searchButton:active{
+  transform: translateY(4px);
+}
+
+.MuiSvgIcon-root{
+  margin-top: 15px;
+  margin-right: 5px;
+}
+
+.GuestField,.LocationField{
+text-align: left;
+padding-left: 10px;
+width: 1248px;
+height: 55px;
+}
+
+.GuestField:hover , .LocationField:hover{
+  width: 100%;
+height: 100%;
+border: 2px solid #333333;
+box-sizing: border-box;
+filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));
+border-radius: 16px;
+}
+
+.GuestField>h1 ,.LocationField>h1{
+  font-family: Mulish;
+font-style: normal;
+font-weight: 800;
+font-size: 9px;
+
+text-transform: uppercase;
+color: #333333;
+
+}
+
+.GuestField>p ,.LocationField>p{
+  font-family: Mulish;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 18px;
+color: #BDBDBD;
+}
+
+.shadowGen{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  
+}
 
