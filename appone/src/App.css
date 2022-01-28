@@ -153,7 +153,7 @@ max-width: 100%;
   transform: translateY(4px);
 }
 
-.MuiSvgIcon-root{
+.searchButton>.MuiSvgIcon-root{
   margin-top: 15px;
   margin-right: 5px;
 }
@@ -190,9 +190,31 @@ max-width: 100%;
   
   width: 33.3%;
   flex-direction: row;
+  height: 250px;
+}
+
+.locationOptions{
+  display: none;
+  flex-direction: column;
+  height: 75%;
+  text-align: left;
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: #4F4F4F;
+}
+
+.locationOptions>div{
+  height: 20%;
+  display: flex;
   
 }
 
+.locationOptions>div>.MuiSvgIcon-root{
+  margin-top: 10px;
+}
 
 
 
@@ -239,6 +261,68 @@ color: #BDBDBD;
   opacity: 0.5;
   
 }
+
+.guestContainer{
+  text-align: left;
+}
+
+.guestOptions{
+  margin-left:10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.guestContainer>h1{
+
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  margin-bottom:0px;
+  color: #333333;
+}
+
+.guestContainer>p{
+  font-family: Mulish;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 18px;
+color: #BDBDBD;
+margin-top:0px;
+
+}
+
+.guestContainer>div>input{
+    width: 10%;
+    outline: none;
+    background-color: #F2F2F2;
+    border: none;
+    text-align: center;
+}
+
+.guestContainer>div{
+    width: 134.25px;
+  
+    display: flex;
+    justify-content: center;
+}
+
+.guestContainer>div>span{
+   border: 1px solid #828282;
+    margin: 0px 15px;
+    width: 25px;
+    height: 25px;
+    background: #E0E0E0;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.hidertwo{
+  display: none;
+}
+
 
 
 @media only screen and (max-width: 1700px) {
@@ -292,9 +376,7 @@ color: #BDBDBD;
     width: 100%;
   }
 
-  .GuestField,.LocationField{
   
-  }
 
   .searchButton{
     margin-left: auto;
