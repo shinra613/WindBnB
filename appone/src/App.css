@@ -371,9 +371,30 @@ margin-top:0px;
     width: 100%;
   }
 
+  .locationOptions {
+   
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .guestOptions {
+   
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .MenuContainer{
+    height: 800px;
+  }
+
   .menubackground>div{
-    height: 100px;
+    height: 200px;
     width: 100%;
+  }
+
+  .menubackground>div:last-of-type {
+    margin-top: 60px ;
+    height: 100px;
   }
 
   

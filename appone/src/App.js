@@ -32,6 +32,12 @@ function App() {
   const [location, setLocation] = useState('All');
   const [updatedLocation, setUpdatedLocation] = useState('All');
 
+ 
+  const [quantityOne, setQuantityOne] = useState(0);
+  const [quantityTwo, setQuantityTwo] = useState(0);
+  const [totalquantity, setTotalquantity] = useState(0);
+  
+
   const InitiateSearch = () => {
 
     const currentLocation = document.getElementById('location').innerText;
@@ -45,6 +51,42 @@ function App() {
   }
 
   const [open, setOpen] = useState(false);
+
+
+  const Totalquantity = () => { 
+    let total = quantityOne + quantityTwo; 
+
+    if (total <= 0) {
+      
+      return (<span>Add guests</span>);
+    } else {
+      setTotalquantity(total);
+      return (<span>{total} Guests</span>);
+     }
+    
+  }
+ 
+
+  const quantityGenOne = (checker) => {
+  
+    let numberOne = quantityOne;
+         
+      if (!checker && numberOne > 0) {
+        setQuantityOne(numberOne - 1); 
+      } else {    
+        setQuantityOne(numberOne+1); 
+      }
+  }
+
+  const quantityGenTwo = (checker) => {
+    let numberTwo = quantityTwo;
+
+    if (!checker && numberTwo > 0) {
+      setQuantityTwo(numberTwo-1);           
+    } else {       
+      setQuantityTwo(numberTwo+1); 
+    }
+  }
   
 
   const DivHider = (props) => {
@@ -86,16 +128,16 @@ function App() {
             <div>
               <div className='GuestField' onClick={() => { DivHider("hidertwo");}}>
                 <h1>GUESTS</h1>
-                <p>Add guests</p>
+                <p><Totalquantity /></p>
               </div>
               <div className='guestOptions hidertwo'>
                 <div className='guestContainer'>
                   <h1>Adults</h1>
                   <p>Age 18 or above</p>
                   <div>
-                    <span> -   </span>
-                    <input type="text" value="1" class=""></input>
-                    <span>+</span>
+                  <span onClick={() => { quantityGenOne(false) }}>-</span>
+                    <input type="text" value={quantityOne} class="quantityNumone"></input>
+                    <span onClick={() => { quantityGenOne(true) }}>+</span>
                   </div>
                 </div >
 
@@ -103,9 +145,9 @@ function App() {
                   <h1>Children</h1>
                   <p>Age 2-12</p>
                   <div>
-                    <span>-</span>
-                    <input type="text" value="1" class=""></input>
-                    <span>+</span>
+                  <span onClick={() => { quantityGenTwo(false,2) }}>-</span>
+                    <input type="text" value={quantityTwo} class="quantityNumtwo"></input>
+                    <span onClick={() => { quantityGenTwo(true,2) }}>+</span>
                   </div>
 
                 </div>
@@ -140,7 +182,7 @@ function App() {
         <div className='headerOne'><img src='../img/logo.png'></img></div>
         <div className='headerTwo' onClick={Pageloader}>
           <span className='headSpanOne'>{updatedLocation}, Finland</span>
-          <span className='headSpanTwo'>add guest</span>
+          <span className='headSpanTwo'><Totalquantity /></span>
           <img src='../img/search.svg'></img>
 
         </div>
@@ -155,7 +197,7 @@ function App() {
           {Postdata.map((i) => {
 
 
-            if (updatedLocation == "All") {
+            if (updatedLocation == "All" && i.beds >=totalquantity) {
               return (<CardGenerator
                 image={i.photo}
                 type={i.type}
@@ -165,7 +207,7 @@ function App() {
               />);
 
             }
-            else if (i.city == updatedLocation) {
+            else if (i.city == updatedLocation && i.beds >=totalquantity) {
 
               console.log(location);
               return (<CardGenerator
