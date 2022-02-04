@@ -36,6 +36,7 @@ function App() {
   const [quantityOne, setQuantityOne] = useState(0);
   const [quantityTwo, setQuantityTwo] = useState(0);
   const [totalquantity, setTotalquantity] = useState(0);
+  const [cards, setCards] = useState(0);
   
 
   const InitiateSearch = () => {
@@ -45,7 +46,7 @@ function App() {
     Pageloader();
     setUpdatedLocation(LocationArray[0]);
 
-
+    setCards(count-2);
 
 
   }
@@ -104,6 +105,8 @@ function App() {
     }
 
   }
+
+  let count = 0;
 
   return (
     <div className="App">
@@ -190,14 +193,17 @@ function App() {
       <div className='data-container'>
         <diV className="card-header">
           <span className='CardSpanOne'>Stays in Finland</span>
-          <span className='CardSpanTwo'> 12+ stays</span>
+          <span className='CardSpanTwo'> {cards}+ stays</span>
         </diV>
         <div className="card-content">
 
           {Postdata.map((i) => {
 
+            
+            if (updatedLocation == "All" && i.beds >= totalquantity) {
+             
 
-            if (updatedLocation == "All" && i.beds >=totalquantity) {
+              count+=1;
               return (<CardGenerator
                 image={i.photo}
                 type={i.type}
@@ -209,14 +215,16 @@ function App() {
             }
             else if (i.city == updatedLocation && i.beds >=totalquantity) {
 
-              console.log(location);
+              count+=1;
               return (<CardGenerator
                 image={i.photo}
                 type={i.type}
                 beds={i.beds}
                 rating={i.rating}
                 title={i.title}
-              />);
+              />
+               
+              );
 
             }
 
