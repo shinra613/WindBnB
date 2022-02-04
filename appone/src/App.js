@@ -36,6 +36,7 @@ function App() {
   const [quantityOne, setQuantityOne] = useState(0);
   const [quantityTwo, setQuantityTwo] = useState(0);
   const [totalquantity, setTotalquantity] = useState(0);
+  const [updatedQuantity, setUpdatedQuantity] = useState(0);
   const [cards, setCards] = useState(0);
   
 
@@ -45,8 +46,10 @@ function App() {
     const LocationArray = currentLocation.split(',')
     Pageloader();
     setUpdatedLocation(LocationArray[0]);
-
+    setUpdatedQuantity(totalquantity);
     setCards(count-2);
+
+
 
 
   }
@@ -200,7 +203,7 @@ function App() {
           {Postdata.map((i) => {
 
             
-            if (updatedLocation == "All" && i.beds >= totalquantity) {
+            if (updatedLocation == "All" && i.beds >= updatedQuantity) {
              
 
               count+=1;
@@ -213,7 +216,7 @@ function App() {
               />);
 
             }
-            else if (i.city == updatedLocation && i.beds >=totalquantity) {
+            else if (i.city == updatedLocation && i.beds >=updatedQuantity) {
 
               count+=1;
               return (<CardGenerator
