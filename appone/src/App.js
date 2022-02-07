@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CardGenerator from './cards';
 import Postdata from './stays.json';
 import SearchIcon from '@material-ui/icons/Search';
@@ -38,6 +38,7 @@ function App() {
   const [totalquantity, setTotalquantity] = useState(0);
   const [updatedQuantity, setUpdatedQuantity] = useState(0);
   const [cards, setCards] = useState(0);
+
   
 
   const InitiateSearch = () => {
@@ -47,10 +48,7 @@ function App() {
     Pageloader();
     setUpdatedLocation(LocationArray[0]);
     setUpdatedQuantity(totalquantity);
-    setCards(count-2);
-
-
-
+    
 
   }
 
@@ -109,7 +107,51 @@ function App() {
 
   }
 
-  let count = 0;
+  
+  const CardGenHandler = () => {
+
+    let count = 0;
+   return Postdata.map((i) => {
+
+            
+      if (updatedLocation == "All" && i.maxGuests >= updatedQuantity) {
+       
+
+        count += 1;
+        setCards(count-1);
+        return (<CardGenerator
+          image={i.photo}
+          type={i.type}
+          beds={i.beds}
+          rating={i.rating}
+          title={i.title}
+        />);
+
+      }
+      else if (i.city == updatedLocation && i.maxGuests >=updatedQuantity) {
+
+        count += 1;
+       
+        setCards(count-1);
+        
+        return (<CardGenerator
+          image={i.photo}
+          type={i.type}
+          beds={i.beds}
+          rating={i.rating}
+          title={i.title}
+        />
+         
+        );
+
+      }
+
+    })
+  }
+
+  useEffect(() => { 
+    CardGenHandler();
+  },[updatedLocation,updatedQuantity]);
 
   return (
     <div className="App">
@@ -158,8 +200,6 @@ function App() {
 
                 </div>
 
-
-
               </div>
             </div>
             <div>
@@ -174,14 +214,9 @@ function App() {
 
         </div>
 
-
-
-
         <div className='shadowGen' onClick={Pageloader}>
 
         </div>
-
-
 
       </div>
       <div className='header'>
@@ -200,38 +235,7 @@ function App() {
         </diV>
         <div className="card-content">
 
-          {Postdata.map((i) => {
-
-            
-            if (updatedLocation == "All" && i.beds >= updatedQuantity) {
-             
-
-              count+=1;
-              return (<CardGenerator
-                image={i.photo}
-                type={i.type}
-                beds={i.beds}
-                rating={i.rating}
-                title={i.title}
-              />);
-
-            }
-            else if (i.city == updatedLocation && i.beds >=updatedQuantity) {
-
-              count+=1;
-              return (<CardGenerator
-                image={i.photo}
-                type={i.type}
-                beds={i.beds}
-                rating={i.rating}
-                title={i.title}
-              />
-               
-              );
-
-            }
-
-          })}
+          <CardGenHandler / >
 
 
         </div>
